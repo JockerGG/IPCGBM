@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  IPC
+
+  Created by Eduardo García González on 12/03/23.
+  
+*/
+"authentication-login-title" = "Iniciar sesión.";
+"authentication-login-subtitle" = "Utiliza tú %@ para poder acceder a la aplicación.";
+"authentication-login-reason" = "Utiliza tus datos para acceder";
+"authentication-login-button-title" = "Utilizar %@";
+"authentication-login-face-id" = "FaceID";
+"authentication-login-touch-id" = "TouchID";
+"authentication-login-not-permission-granted" = "No se han otorgado permisos para usar los datos biométicos para el login.";
+"authentication-login-error-title" = "Error en la autenticación";
+"authentication-login-error-retry" = "Reintentar";
+"authentication-login-error-configuration" = "Ir a configuración";
+"generic-unknown-message" = "Ocurrió un problema, vuelve a intentarlo.";
+
