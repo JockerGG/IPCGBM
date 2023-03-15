@@ -17,6 +17,7 @@
 "authentication-login-error-configuration" = "Ir a configuración";
 
 "chart-view-title" = "Índice IPC";
+"chart-data-error" = "Ocurrió un error al obtener los datos del IPC, intenta de nuevo.";
 
 "generic-unknown-message" = "Ocurrió un problema, vuelve a intentarlo.";
 "network-service-error" = "No se pudo establecer conexión con la url especificada.";

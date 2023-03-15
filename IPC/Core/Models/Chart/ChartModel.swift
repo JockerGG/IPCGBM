@@ -9,4 +9,9 @@ import Foundation
 struct ChartModel: Codable {
     let date: Date
     let price: CGFloat
+    let percentageChange: CGFloat
+    
+    var ipc: CGFloat {
+        price - (price * percentageChange)
+    }
 }

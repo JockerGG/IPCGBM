@@ -10,6 +10,7 @@ import Foundation
 extension DateFormatter {
     enum Formats: String {
         case iso08601 = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        case simple = "dd/MM/YY"
     }
     static func formatter(with dateFormat: String) -> DateFormatter {
         let dateFormatter = DateFormatter()

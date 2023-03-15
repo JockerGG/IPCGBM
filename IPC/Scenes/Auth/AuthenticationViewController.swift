@@ -20,6 +20,8 @@ final class AuthenticationViewController: UIViewController, BaseViewController {
         return view
     }()
     
+    var navigationDelegate: AuthenticationCoordinationNavigationDelegate?
+    
     init(viewModel: AuthenticationViewModel,
          uiModelBuilder: AuthenticationUIModelBuilder = AuthenticationUIModelBuilder()) {
         self.viewModel = viewModel
@@ -33,8 +35,8 @@ final class AuthenticationViewController: UIViewController, BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.notifier = { [weak self] notification in
-            self?.updateUI(with: notification)
+        viewModel.notifier = { notification in
+            self.updateUI(with: notification)
         }
     }
     
@@ -44,15 +46,16 @@ final class AuthenticationViewController: UIViewController, BaseViewController {
     }
     
     private func updateUI(with notification: AuthenticationViewModel.NotifierActions) {
-        switch notification {
-        case .update(let biometricType):
-            self.formView.uiModel = uiModelBuilder.assemble(with: biometricType)
-        case .didLoginSuccess:
-            break
-        case .didNavigateToConfiguration:
-            break
-        case .didShowAlert(let title, let message, let actions):
-            self.showAlertController(title: title, message: message, actions: actions)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            switch notification {
+            case .update(let biometricType):
+                self.formView.uiModel = self.uiModelBuilder.assemble(with: biometricType)
+            case .didLoginSuccess:
+                self.navigationDelegate?.didAuthenticationSuccess(parentViewController: self)
+            case .didShowAlert(let title, let message, let actions):
+                self.showAlertController(title: title, message: message, actions: actions)
+            }
         }
     }
     

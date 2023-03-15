@@ -30,7 +30,6 @@
 		1656A43029BEE75B00AEE3DA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656A42F29BEE75B00AEE3DA /* BaseView.swift */; };
 		1656A43429BEF89300AEE3DA /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656A43329BEF89300AEE3DA /* UIImage + Extension.swift */; };
 		1656A43729BEF97900AEE3DA /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 1656A43629BEF97900AEE3DA /* SnapshotTesting */; };
-		1656A43D29BF05D400AEE3DA /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656A43C29BF05D400AEE3DA /* AppCoordinator.swift */; };
 		168D5CC729BE4340008ADD41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5CC629BE4340008ADD41 /* AppDelegate.swift */; };
 		168D5CC929BE4340008ADD41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5CC829BE4340008ADD41 /* SceneDelegate.swift */; };
 		168D5CCB29BE4340008ADD41 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5CCA29BE4340008ADD41 /* AuthenticationViewController.swift */; };
@@ -56,6 +55,16 @@
 		16A35B6C29C153970023F79E /* CGFloat + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B6B29C153970023F79E /* CGFloat + Extension.swift */; };
 		16A35B6F29C163790023F79E /* ChartInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B6E29C163790023F79E /* ChartInformation.swift */; };
 		16A35B7129C163A50023F79E /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7029C163A50023F79E /* ChartData.swift */; };
+		16A35B7329C195800023F79E /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7229C195800023F79E /* ChartViewController.swift */; };
+		16A35B7729C1972A0023F79E /* ChartUIModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7629C1972A0023F79E /* ChartUIModelBuilder.swift */; };
+		16A35B7B29C199DF0023F79E /* IPCRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7A29C199DF0023F79E /* IPCRepository.swift */; };
+		16A35B7D29C19C290023F79E /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7C29C19C290023F79E /* ChartViewModel.swift */; };
+		16A35B8029C19D540023F79E /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7F29C19D540023F79E /* LoaderView.swift */; };
+		16A35B8329C1B3D50023F79E /* ChartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B8229C1B3D50023F79E /* ChartCoordinator.swift */; };
+		16A35B8829C1B7070023F79E /* AuthenticationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B8729C1B7070023F79E /* AuthenticationCoordinatorTests.swift */; };
+		16A35B8B29C1B71D0023F79E /* RouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B8A29C1B71D0023F79E /* RouterSpy.swift */; };
+		16A35B8D29C1B7B10023F79E /* DummyLAContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B8C29C1B7B10023F79E /* DummyLAContext.swift */; };
+		16A35B9029C1C4DA0023F79E /* ChartCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B8F29C1C4DA0023F79E /* ChartCoordinatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +100,6 @@
 		1656A42C29BEE56600AEE3DA /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		1656A42F29BEE75B00AEE3DA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		1656A43329BEF89300AEE3DA /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
-		1656A43C29BF05D400AEE3DA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		168D5CC329BE4340008ADD41 /* IPC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168D5CC629BE4340008ADD41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168D5CC829BE4340008ADD41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +128,16 @@
 		16A35B6B29C153970023F79E /* CGFloat + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extension.swift"; sourceTree = "<group>"; };
 		16A35B6E29C163790023F79E /* ChartInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInformation.swift; sourceTree = "<group>"; };
 		16A35B7029C163A50023F79E /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		16A35B7229C195800023F79E /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		16A35B7629C1972A0023F79E /* ChartUIModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUIModelBuilder.swift; sourceTree = "<group>"; };
+		16A35B7A29C199DF0023F79E /* IPCRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCRepository.swift; sourceTree = "<group>"; };
+		16A35B7C29C19C290023F79E /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		16A35B7F29C19D540023F79E /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		16A35B8229C1B3D50023F79E /* ChartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCoordinator.swift; sourceTree = "<group>"; };
+		16A35B8729C1B7070023F79E /* AuthenticationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinatorTests.swift; sourceTree = "<group>"; };
+		16A35B8A29C1B71D0023F79E /* RouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSpy.swift; sourceTree = "<group>"; };
+		16A35B8C29C1B7B10023F79E /* DummyLAContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyLAContext.swift; sourceTree = "<group>"; };
+		16A35B8F29C1C4DA0023F79E /* ChartCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCoordinatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +162,8 @@
 		164CCE2F29BF12610054DEA8 /* Reposotories */ = {
 			isa = PBXGroup;
 			children = (
-				164CCE3029BF12810054DEA8 /* LARepository.swift */,
-				164CCE3D29BF97400054DEA8 /* LAPermissionsValidatorRepository.swift */,
+				16A35B7929C199B70023F79E /* Chart */,
+				16A35B7829C199AA0023F79E /* Auth */,
 			);
 			path = Reposotories;
 			sourceTree = "<group>";
@@ -173,6 +191,7 @@
 		164CCE3829BF18500054DEA8 /* IPC */ = {
 			isa = PBXGroup;
 			children = (
+				16A35B8429C1B6D60023F79E /* Coordinator */,
 				164CCE3929BF185C0054DEA8 /* Core */,
 				1656A43829BEF98A00AEE3DA /* Scenes */,
 			);
@@ -236,6 +255,7 @@
 				164CCE5B29BFCF060054DEA8 /* LARepositorySpy.swift */,
 				164CCE5D29BFCF1A0054DEA8 /* LAPermissionsValidatoryRepositorySpy.swift */,
 				16A35B5029C122530023F79E /* URLSessionProtocolSpy.swift */,
+				16A35B8A29C1B71D0023F79E /* RouterSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -339,7 +359,6 @@
 			children = (
 				168D5CC629BE4340008ADD41 /* AppDelegate.swift */,
 				168D5CC829BE4340008ADD41 /* SceneDelegate.swift */,
-				1656A43C29BF05D400AEE3DA /* AppCoordinator.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -358,6 +377,7 @@
 		168D5CF829BE4989008ADD41 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				16A35B7E29C19D3A0023F79E /* Loader */,
 				168D5CF929BE4991008ADD41 /* Auth */,
 				1656A42E29BEE74500AEE3DA /* Base */,
 				16A35B3B29C048700023F79E /* Chart */,
@@ -380,6 +400,7 @@
 			children = (
 				164CCE4329BFA5770054DEA8 /* Auth */,
 				168D5CFD29BE4A14008ADD41 /* Base */,
+				16A35B8129C1B3C00023F79E /* Chart */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -403,6 +424,7 @@
 		16A35B3729BFD58C0023F79E /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				16A35B7429C196F80023F79E /* Chart */,
 				16A35B3829BFD59A0023F79E /* Auth */,
 			);
 			path = Builder;
@@ -422,6 +444,8 @@
 				16A35B6D29C163300023F79E /* Models */,
 				16A35B3C29C050C50023F79E /* LineChartView.swift */,
 				16A35B3E29C0FBFC0023F79E /* ChartView.swift */,
+				16A35B7229C195800023F79E /* ChartViewController.swift */,
+				16A35B7C29C19C290023F79E /* ChartViewModel.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -505,6 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				16A35B6329C14C650023F79E /* DummyURLSessionDataTask.swift */,
+				16A35B8C29C1B7B10023F79E /* DummyLAContext.swift */,
 			);
 			path = Dummy;
 			sourceTree = "<group>";
@@ -532,6 +557,72 @@
 				16A35B7029C163A50023F79E /* ChartData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		16A35B7429C196F80023F79E /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				16A35B7629C1972A0023F79E /* ChartUIModelBuilder.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		16A35B7829C199AA0023F79E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				164CCE3029BF12810054DEA8 /* LARepository.swift */,
+				164CCE3D29BF97400054DEA8 /* LAPermissionsValidatorRepository.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		16A35B7929C199B70023F79E /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				16A35B7A29C199DF0023F79E /* IPCRepository.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		16A35B7E29C19D3A0023F79E /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				16A35B7F29C19D540023F79E /* LoaderView.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		16A35B8129C1B3C00023F79E /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				16A35B8229C1B3D50023F79E /* ChartCoordinator.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		16A35B8429C1B6D60023F79E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				16A35B8E29C1C4BE0023F79E /* Chart */,
+				16A35B8529C1B6E10023F79E /* Auth */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		16A35B8529C1B6E10023F79E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				16A35B8729C1B7070023F79E /* AuthenticationCoordinatorTests.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		16A35B8E29C1C4BE0023F79E /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				16A35B8F29C1C4DA0023F79E /* ChartCoordinatorTests.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -646,8 +737,9 @@
 				16A35B4829C1190F0023F79E /* NetworkRequest.swift in Sources */,
 				164CCE4F29BFC96E0054DEA8 /* AlertAction.swift in Sources */,
 				164CCE3E29BF97400054DEA8 /* LAPermissionsValidatorRepository.swift in Sources */,
-				1656A43D29BF05D400AEE3DA /* AppCoordinator.swift in Sources */,
+				16A35B8329C1B3D50023F79E /* ChartCoordinator.swift in Sources */,
 				164CCE4D29BFA8D00054DEA8 /* BaseViewModel.swift in Sources */,
+				16A35B7329C195800023F79E /* ChartViewController.swift in Sources */,
 				16A35B4A29C11B6C0023F79E /* NetworkService.swift in Sources */,
 				168D5CCB29BE4340008ADD41 /* AuthenticationViewController.swift in Sources */,
 				16A35B6F29C163790023F79E /* ChartInformation.swift in Sources */,
@@ -659,13 +751,16 @@
 				168D5CC729BE4340008ADD41 /* AppDelegate.swift in Sources */,
 				164CCE4229BFA4620054DEA8 /* AuthenticationViewModel.swift in Sources */,
 				168D5D0229BE4B9B008ADD41 /* Coordinator.swift in Sources */,
+				16A35B8029C19D540023F79E /* LoaderView.swift in Sources */,
 				164CCE3129BF12810054DEA8 /* LARepository.swift in Sources */,
 				16A35B7129C163A50023F79E /* ChartData.swift in Sources */,
 				1656A42529BEBE2D00AEE3DA /* AuthenticationView.swift in Sources */,
+				16A35B7D29C19C290023F79E /* ChartViewModel.swift in Sources */,
 				1656A42829BEBE8000AEE3DA /* UIView + Extension.swift in Sources */,
 				1656A42D29BEE56600AEE3DA /* String + Extension.swift in Sources */,
 				16A35B3D29C050C60023F79E /* LineChartView.swift in Sources */,
 				164CCE5129BFCA920054DEA8 /* Unwrapper.swift in Sources */,
+				16A35B7B29C199DF0023F79E /* IPCRepository.swift in Sources */,
 				168D5CC929BE4340008ADD41 /* SceneDelegate.swift in Sources */,
 				1656A43029BEE75B00AEE3DA /* BaseView.swift in Sources */,
 				1656A43429BEF89300AEE3DA /* UIImage + Extension.swift in Sources */,
@@ -673,6 +768,7 @@
 				16A35B3A29BFD5AE0023F79E /* AuthenticationUIModelBuilder.swift in Sources */,
 				1656A42329BE8BB800AEE3DA /* AuthenticacionCoordinator.swift in Sources */,
 				16A35B4329C100E40023F79E /* ChartModel.swift in Sources */,
+				16A35B7729C1972A0023F79E /* ChartUIModelBuilder.swift in Sources */,
 				164CCE3329BF13160054DEA8 /* IPCError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,9 +778,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				164CCE5829BFCEBA0054DEA8 /* AuthenticationViewModelBehaviorTests.swift in Sources */,
+				16A35B9029C1C4DA0023F79E /* ChartCoordinatorTests.swift in Sources */,
 				16A35B6A29C151AA0023F79E /* ChartDataMother.swift in Sources */,
+				16A35B8829C1B7070023F79E /* AuthenticationCoordinatorTests.swift in Sources */,
 				164CCE4029BFA16A0054DEA8 /* LAPermissionsValidatorRepositoryTests.swift in Sources */,
 				16A35B4F29C122370023F79E /* NetworkServiceTests.swift in Sources */,
+				16A35B8B29C1B71D0023F79E /* RouterSpy.swift in Sources */,
 				164CCE3729BF17180054DEA8 /* LAContextStub.swift in Sources */,
 				16A35B5129C122530023F79E /* URLSessionProtocolSpy.swift in Sources */,
 				16A35B5829C124520023F79E /* FileManager.swift in Sources */,
@@ -692,6 +791,7 @@
 				16A35B6429C14C650023F79E /* DummyURLSessionDataTask.swift in Sources */,
 				164CCE3C29BF187C0054DEA8 /* LARepositoryTests.swift in Sources */,
 				164CCE5E29BFCF1A0054DEA8 /* LAPermissionsValidatoryRepositorySpy.swift in Sources */,
+				16A35B8D29C1B7B10023F79E /* DummyLAContext.swift in Sources */,
 				164CCE5C29BFCF060054DEA8 /* LARepositorySpy.swift in Sources */,
 				16A35B6729C151570023F79E /* ChartViewSnapshotTests.swift in Sources */,
 			);

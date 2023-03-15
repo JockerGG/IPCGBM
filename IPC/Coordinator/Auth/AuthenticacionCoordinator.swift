@@ -9,9 +9,13 @@ import Foundation
 import LocalAuthentication
 import UIKit
 
+protocol AuthenticationCoordinationNavigationDelegate: AnyObject {
+    func didAuthenticationSuccess(parentViewController: UIViewController)
+}
+
 final class AuthenticationCoordinator: Coordinator {
     internal var child: [Coordinator] = []
-    internal weak var parentViewController: UIViewController?
+    internal var parentViewController: UIViewController?
     internal var router: Router
     private let localContext: LAContext
     private lazy var nextViewController: AuthenticationViewController = {
@@ -23,13 +27,19 @@ final class AuthenticationCoordinator: Coordinator {
             localContext: localContext)
         )
         
+        nextController.navigationDelegate = self
+        
         return nextController
     }()
     
-    init(parentViewController: UIViewController?, localContext: LAContext) {
+    init(parentViewController: UIViewController?, localContext: LAContext, router: Router? = nil) {
         self.parentViewController = parentViewController
-        self.router = RouterImplementation(root: parentViewController)
         self.localContext = localContext
+        if let router {
+            self.router = router
+        } else {
+            self.router = RouterImplementation(root: parentViewController)
+        }
     }
     
     func start() {
@@ -40,5 +50,12 @@ final class AuthenticationCoordinator: Coordinator {
         }
         
         router.present(nextViewController, animated: true)
+    }
+}
+
+extension AuthenticationCoordinator: AuthenticationCoordinationNavigationDelegate {
+    public func didAuthenticationSuccess(parentViewController: UIViewController) {
+        let nextCoordinator = ChartCoordinator(parentViewController: parentViewController)
+        nextCoordinator.start()
     }
 }

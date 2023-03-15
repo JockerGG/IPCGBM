@@ -13,7 +13,6 @@ final class AuthenticationViewModel: BaseViewModel<AuthenticationViewModel.Notif
     enum NotifierActions {
         case update(biometricType: LABiometryType)
         case didLoginSuccess
-        case didNavigateToConfiguration
         case didShowAlert(title: String, message: String, actions: [AlertAction])
     }
     
@@ -59,8 +58,8 @@ final class AuthenticationViewModel: BaseViewModel<AuthenticationViewModel.Notif
                                          actions: [
                                             AlertAction(title: "authentication-login-error-configuration".localized,
                                                         style: .default,
-                                                        action: {
-                                                            self.notifier?(.didNavigateToConfiguration)
+                                                        action: { [weak self] in
+                                                            self?.didTapLogin()
                                                         })
                                          ]))
         }

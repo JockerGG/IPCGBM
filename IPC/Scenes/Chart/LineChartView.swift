@@ -66,7 +66,7 @@ struct LineChartView: View {
                             Capsule()
                                 .frame(height: 25)
                             Text(currentPlot)
-                                .font(.caption.bold())
+                                .font(.system(size: 10))
                                 .foregroundColor(.white)
                         }
                         .offset(x: translation < 10 ? 30 : 0)

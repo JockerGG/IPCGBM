@@ -45,8 +45,18 @@ final class RouterImplementation: Router {
     }
     
     func setRoot(_ viewController: UIViewController, animated: Bool) {
-        guard let rootNavigationController = root as? UINavigationController else { return }
-        rootNavigationController.setViewControllers([viewController], animated: animated)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                let sceneDelegate = windowScene.delegate as? SceneDelegate else {
+            return
+        }
+        
+        if !(viewController is UINavigationController) {
+            let navigationController = UINavigationController(rootViewController: viewController)
+            sceneDelegate.window?.rootViewController = navigationController
+            return
+        }
+        
+        sceneDelegate.window?.rootViewController = viewController
     }
     
     func popToRootViewController(animated: Bool, completion: (() -> Void)?) {

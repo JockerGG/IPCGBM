@@ -10,7 +10,7 @@ import LocalAuthentication
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    var appCoordinator: AppCoordinator?
+
     lazy var localContext: LAContext = {
         LAContext()
     }()
@@ -20,10 +20,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         let navigationController = UINavigationController()
-        appCoordinator = AppCoordinator(window: window,
-                                        parentViewController: navigationController,
-                                        localContext: localContext)
-        appCoordinator?.start()
+        window.rootViewController = navigationController
+        let authCoordinator = AuthenticationCoordinator(parentViewController: navigationController,
+                                                        localContext: localContext)
+        authCoordinator.start()
+        window.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
