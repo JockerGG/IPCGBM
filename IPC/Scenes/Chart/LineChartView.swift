@@ -7,21 +7,8 @@
 
 import SwiftUI
 
-struct ChartData {
-    let y: CGFloat
-    let x: String
-}
-
 struct LineChartView: View {
-    var elements: [ChartData] = []
-    private var data: [CGFloat] {
-        elements.map { $0.y }
-    }
-    
-    private var labels: [String] {
-        elements.map { $0.x }
-    }
-    
+    @ObservedObject var data: ChartInformation = .init(values: [])
     @State private var currentPlot: String = ""
     @State private var currentLabel: String = ""
     @State private var offset: CGSize = .zero
@@ -29,123 +16,138 @@ struct LineChartView: View {
     @State private var translation: CGFloat = 0
     
     var body: some View {
-        GeometryReader { proxy in
-            let height = proxy.size.height
-            let width = (proxy.size.width / CGFloat(data.count - 1))
-            let maxPoint = Unwrapper.unwrap(data.max(),
-                                            defaultValue: 0) + 100
-            let points = data.enumerated().compactMap { item -> CGPoint in
-                let progress = item.element / maxPoint
-                let pathHeight = progress * height
-                let pathWidth = width * CGFloat(item.offset)
-                
-                return CGPoint(x: pathWidth, y: -pathHeight + height)
-            }
-            
-            ZStack {
-                Path { path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addLines(points)
+        VStack {
+            GeometryReader { proxy in
+                let elements = data.values
+                let height = proxy.size.height
+                let width = (proxy.size.width / CGFloat(elements.count - 1))
+                let maxPoint = Unwrapper.unwrap(elements.map { $0.y }.max(),
+                                                defaultValue: 0) + 100
+                let points = elements.enumerated().compactMap { (itemOffset, item) -> CGPoint in
+                    let progress = item.y / maxPoint
+                    let pathHeight = progress * height
+                    let pathWidth = width * CGFloat(itemOffset)
+                    
+                    return CGPoint(x: pathWidth, y: -pathHeight + height)
                 }
-                .strokedPath(StrokeStyle(lineWidth: 2.5,
-                                         lineCap: .round,
-                                         lineJoin: .round))
-                .fill(
-                    LinearGradient(colors: [
-                        Color.black,
-                        Color.black
-                    ], startPoint: .leading, endPoint: .trailing)
-                )
                 
-                fillBG()
-                
-                    .clipShape(
-                        Path { path in
-                            path.move(to: CGPoint(x: 0, y: 0))
-                            path.addLines(points)
-                            path.addLine(to: .init(x: proxy.size.width,
-                                                   y: height))
-                            path.addLine(to: .init(x: 0,
-                                                   y: height))
-                        }
+                ZStack {
+                    Path { path in
+                        path.move(to: CGPoint(x: 0, y: 0))
+                        path.addLines(points)
+                    }
+                    .strokedPath(StrokeStyle(lineWidth: 2.5,
+                                             lineCap: .round,
+                                             lineJoin: .round))
+                    .fill(
+                        LinearGradient(colors: [
+                            Color.black,
+                            Color.black
+                        ], startPoint: .leading, endPoint: .trailing)
                     )
-                //                .padding(.top, 12)
+                    
+                    fillBG()
+                    
+                        .clipShape(
+                            Path { path in
+                                path.move(to: CGPoint(x: 0, y: 0))
+                                path.addLines(points)
+                                path.addLine(to: .init(x: proxy.size.width,
+                                                       y: height))
+                                path.addLine(to: .init(x: 0,
+                                                       y: height))
+                            }
+                        )
+                    //                .padding(.top, 12)
+                }
+                .overlay(
+                    VStack(spacing: 0) {
+                        ZStack {
+                            Capsule()
+                                .frame(height: 25)
+                            Text(currentPlot)
+                                .font(.caption.bold())
+                                .foregroundColor(.white)
+                        }
+                        .offset(x: translation < 10 ? 30 : 0)
+                        .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 10)
+                        
+                        Rectangle()
+                            .fill(.purple)
+                            .frame(width: 1, height: 40)
+                            .padding(.top)
+                        
+                        Circle()
+                            .fill(.purple)
+                            .frame(width: 22, height: 22)
+                            .overlay(
+                                Circle()
+                                    .fill(.white)
+                                    .frame(width: 10, height: 10)
+                            )
+                        
+                        Rectangle()
+                            .fill(.purple)
+                            .frame(width: 1, height: 50)
+                        
+                        ZStack {
+                            Capsule()
+                                .frame(height: 25)
+                            Text(currentLabel)
+                                .font(.caption.bold())
+                                .foregroundColor(.white)
+                        }
+                        .offset(x: translation < 10 ? 30 : 0)
+                        .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 10)
+                    }
+                        .frame(width: 80, height: 150)
+                        .offset(y: 70)
+                        .offset(offset)
+                        .opacity(showPlot ? 1 : 0),
+                    alignment: .bottomLeading
+                )
+                .contentShape(Rectangle())
+                .gesture(DragGesture().onChanged({ value in
+                    withAnimation { showPlot = true }
+                    translation = value.location.x - 40
+                    
+                    let index = max(min(Int((translation / width).rounded(.down) + 1),
+                                        elements.count - 1), 0)
+                    
+                    currentPlot = elements[index].y.currencyFormat()
+                    currentLabel = elements[index].x
+                    
+                    offset = CGSize(width: points[index].x - 40, height: points[index].y - height)
+                    
+                    
+                }).onEnded({ value in
+                    withAnimation { showPlot = false }
+                }))
             }
             .overlay(
-                VStack(spacing: 0) {
-                    Text(currentPlot)
+                VStack(alignment: .leading) {
+                    let max = Unwrapper.unwrap(data.values.map { $0.y } .max(), defaultValue: 0)
+                    Text(max.currencyFormat())
                         .font(.caption.bold())
-                        .foregroundColor(.white)
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 10)
-                        .background(Color.indigo, in: Capsule())
-                        .offset(x: translation < 10 ? 30 : 0)
-                        .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
+        
+                    Spacer()
                     
-                    Rectangle()
-                        .fill(Color.indigo)
-                        .frame(width: 1, height: 40)
-                        .padding(.top)
-                    
-                    Circle()
-                        .fill(Color.indigo)
-                        .frame(width: 22, height: 22)
-                        .overlay(
-                            Circle()
-                                .fill(.white)
-                                .frame(width: 10, height: 10)
-                        )
-                    
-                    Rectangle()
-                        .fill(Color.indigo)
-                        .frame(width: 1, height: 50)
-                    
-                    Text(currentLabel)
+                    Text("$0")
                         .font(.caption.bold())
-                        .foregroundColor(.white)
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 10)
-                        .background(Color.indigo, in: Capsule())
-                        .offset(x: translation < 10 ? 30 : 0)
-                        .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
                 }
-                    .frame(width: 80, height: 150)
-                    .offset(y: 70)
-                    .offset(offset)
-                    .opacity(showPlot ? 1 : 0),
-                alignment: .bottomLeading
+                    .frame(maxWidth: .infinity, alignment: .leading)
             )
-            .contentShape(Rectangle())
-            .gesture(DragGesture().onChanged({ value in
-                withAnimation { showPlot = true }
-                translation = value.location.x - 40
-                
-                let index = max(min(Int((translation / width).rounded() + 1), data.count - 1), 0)
-                
-                currentPlot = "$ \(data[index])"
-                currentLabel = labels[index]
-                
-                offset = CGSize(width: points[index].x - 40, height: points[index].y - height)
-                
-                
-            }).onEnded({ value in
-                withAnimation { showPlot = false }
-            }))
+            .padding(.top, 8)
+            .padding(.bottom, 8)
+            .padding(.leading, 2)
+            .padding(.trailing, 2)
         }
-        .overlay(
-            VStack(alignment: .leading) {
-                let max = Unwrapper.unwrap(data.max(), defaultValue: 0)
-                Text("\(max)")
-                    .font(.caption.bold())
-    
-                Spacer()
-                
-                Text("$ 0")
-                    .font(.caption.bold())
-            }
-                .frame(maxWidth: .infinity, alignment: .leading)
-        )
-        .padding(.horizontal, 10)
+        .border(.blue)
+        .padding(8)
     }
     
     @ViewBuilder
@@ -167,25 +169,15 @@ struct LineChartView: View {
 
 struct LineChartView_Previews: PreviewProvider {
     static var previews: some View {
-        LineChartView(elements: [
-            .init(y: 989, x: "01/01/2023"),
-                .init(y: 1200, x: "02/01/23"),
-                .init(y: 750, x: "03/01/23"),
-                .init(y: 790, x: "04/01/23"),
-                .init(y: 650, x: "04/01/23"),
-                .init(y: 950, x: "04/01/23"),
-                .init(y: 1200, x: "04/01/23"),
-                .init(y: 600, x: "04/01/23"),
-                .init(y: 500, x: "04/01/23"),
-                .init(y: 600, x: "04/01/23"),
-                .init(y: 890, x: "04/01/23"),
-                .init(y: 1203, x: "04/01/23"),
-                .init(y: 1400, x: "04/01/23"),
-                .init(y: 900, x: "04/01/23"),
-                .init(y: 1250, x: "04/01/23"),
-                .init(y: 1600, x: "04/01/23"),
-                .init(y: 1200, x: "04/01/23")
-        ])
-        .frame(height: 250)
+        let object = ChartInformation(values: [])
+        let view: LineChartView = LineChartView(data: object)
+        
+        object.values = [.init(y: 790, x: "04/01/23"),
+                         .init(y: 790, x: "04/01/23"),
+                         .init(y: 989, x: "01/01/23"),
+                         .init(y: 2000, x: "01/01/23")
+        ]
+        
+        return view
     }
 }

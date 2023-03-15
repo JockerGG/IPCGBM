@@ -71,7 +71,7 @@ final class AuthenticationViewModelBehaviorTests: XCTestCase {
             // Validate
             XCTAssertTrue(self.localPermissionsValidatorRepositorySpy.validateCalled)
             XCTAssertTrue(self.localRepositorySpy.loginCalled)
-            XCTAssertEqual(title, "authentication-login-error-title".localized)
+            XCTAssertEqual(title, "Error en la autenticación")
             XCTAssertEqual(message, "stubbed error")
             XCTAssertEqual(actions.count, 1)
             expectation.fulfill()

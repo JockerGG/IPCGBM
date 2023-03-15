@@ -15,5 +15,10 @@
 "authentication-login-error-title" = "Error en la autenticación";
 "authentication-login-error-retry" = "Reintentar";
 "authentication-login-error-configuration" = "Ir a configuración";
+
+"chart-view-title" = "Índice IPC";
+
 "generic-unknown-message" = "Ocurrió un problema, vuelve a intentarlo.";
+"network-service-error" = "No se pudo establecer conexión con la url especificada.";
+"network-service-error-response" = "Ocurrió un error al tratar de obtener la información, intenta de nuevo.";
 
