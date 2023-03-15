@@ -20,7 +20,7 @@ final class AuthenticationCoordinatorTests: XCTestCase {
         // Given
         let sut = AuthenticationCoordinator(parentViewController: UINavigationController(),
                                             localContext: dummyLAContext,
-                                            router: routerSpy)
+                                            router: routerSpy, shouldBeRoot: true)
         
         // When
         sut.start()
@@ -28,6 +28,20 @@ final class AuthenticationCoordinatorTests: XCTestCase {
         // Validate
         XCTAssertTrue(routerSpy.setRootCalled)
         XCTAssertTrue(routerSpy.setRootParameters?.viewController is AuthenticationViewController)
+    }
+    
+    func test_start_present_controller() {
+        // Given
+        let sut = AuthenticationCoordinator(parentViewController: UINavigationController(),
+                                            localContext: dummyLAContext,
+                                            router: routerSpy, shouldBeRoot: false)
+        
+        // When
+        sut.start()
+        
+        // Validate
+        XCTAssertTrue(routerSpy.presentCalled)
+        XCTAssertTrue(routerSpy.presentParameters?.viewController is AuthenticationViewController)
     }
     
 }

@@ -8,11 +8,7 @@
 import Foundation
 
 struct ChartUIModelBuilder {
-    func assemble(with data: [ChartModel]) -> ChartView.UIModel {
-        let dateFormatter = DateFormatter.formatter(with: DateFormatter.Formats.simple.rawValue)
-        let chartData = data.map { value in
-            return ChartData(y: value.ipc, x: dateFormatter.string(from: value.date))
-        }
-        return .init(data: chartData)
+    func assemble(with data: [ChartData]) -> ChartView.UIModel {
+        return .init(data: data)
     }
 }

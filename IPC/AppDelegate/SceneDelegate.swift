@@ -10,7 +10,8 @@ import LocalAuthentication
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-
+    var authCoordinator: AuthenticationCoordinator?
+    
     lazy var localContext: LAContext = {
         LAContext()
     }()
@@ -21,9 +22,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         let navigationController = UINavigationController()
         window.rootViewController = navigationController
-        let authCoordinator = AuthenticationCoordinator(parentViewController: navigationController,
-                                                        localContext: localContext)
-        authCoordinator.start()
+        authCoordinator = AuthenticationCoordinator(parentViewController: navigationController,
+                                                    localContext: localContext,
+                                                    shouldBeRoot: true)
+        authCoordinator?.start()
         window.makeKeyAndVisible()
     }
     
@@ -47,6 +49,13 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        guard let rootNavigationController = window?.rootViewController as? UINavigationController,
+              let presentedController = rootNavigationController.visibleViewController,
+              !(presentedController is AuthenticationViewController) else { return }
+        authCoordinator = AuthenticationCoordinator(parentViewController: presentedController,
+                                                    localContext: localContext,
+                                                    shouldBeRoot: false)
+        authCoordinator?.start()
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {

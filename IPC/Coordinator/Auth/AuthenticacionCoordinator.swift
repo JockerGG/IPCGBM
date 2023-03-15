@@ -18,22 +18,25 @@ final class AuthenticationCoordinator: Coordinator {
     internal var parentViewController: UIViewController?
     internal var router: Router
     private let localContext: LAContext
+    private var shouldBeRoot: Bool = true
     private lazy var nextViewController: AuthenticationViewController = {
         let localValidationRepository = LAPermissionsValidatorRepository(context: localContext)
         let localAuthenticationRepository = LARepository(context: localContext)
         let nextController = AuthenticationViewController(viewModel: .init(
             localAuthenticationValidatorRepository: localValidationRepository,
             localAuthenticationRepository: localAuthenticationRepository,
-            localContext: localContext)
+            localContext: localContext),
+            navigationDelegate: self
         )
         
-        nextController.navigationDelegate = self
+        nextController.modalPresentationStyle = .fullScreen
         
         return nextController
     }()
     
-    init(parentViewController: UIViewController?, localContext: LAContext, router: Router? = nil) {
+    init(parentViewController: UIViewController?, localContext: LAContext, router: Router? = nil, shouldBeRoot: Bool) {
         self.parentViewController = parentViewController
+        self.shouldBeRoot = shouldBeRoot
         self.localContext = localContext
         if let router {
             self.router = router
@@ -43,18 +46,17 @@ final class AuthenticationCoordinator: Coordinator {
     }
     
     func start() {
-        if let navigationController = parentViewController as? UINavigationController,
-           navigationController.viewControllers.count == 0 {
-            router.setRoot(nextViewController, animated: true)
-            return
-        }
-        
-        router.present(nextViewController, animated: true)
+        shouldBeRoot ? router.setRoot(nextViewController, animated: true) : router.present(nextViewController, animated: true)
     }
 }
 
 extension AuthenticationCoordinator: AuthenticationCoordinationNavigationDelegate {
     public func didAuthenticationSuccess(parentViewController: UIViewController) {
+        guard shouldBeRoot else {
+            router.dismiss(animated: true, completion: nil)
+            return
+        }
+        
         let nextCoordinator = ChartCoordinator(parentViewController: parentViewController)
         nextCoordinator.start()
     }

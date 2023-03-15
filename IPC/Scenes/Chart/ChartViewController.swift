@@ -13,9 +13,7 @@ final class ChartViewController: UIViewController, BaseViewController {
     private let uiModelBuilder: ChartUIModelBuilder
     
     lazy var formView: ChartView = {
-        let chartView = ChartView(uiModel: .init(data: []), actionHandler: { [weak self] action in
-            self?.handle(action)
-        })
+        let chartView = ChartView(uiModel: .init(data: []), actionHandler: { _ in })
         
         return chartView
     }()
@@ -57,9 +55,5 @@ final class ChartViewController: UIViewController, BaseViewController {
                 self.showAlertController(title: title, message: message, actions: actions)
             }
         }
-    }
-    
-    private func handle(_ action: ChartView.Actions) {
-        
     }
 }

@@ -9,7 +9,9 @@ import UIKit
 import SwiftUI
 
 final class ChartView: BaseView<ChartView.UIModel, ChartView.Actions> {
-    enum Actions { }
+    enum Actions {
+        case valueChanged(value: Int)
+    }
     
     struct UIModel {
         let data: [ChartData]
@@ -17,6 +19,20 @@ final class ChartView: BaseView<ChartView.UIModel, ChartView.Actions> {
     
     private lazy var chartInformation: ChartInformation = {
         .init(values: [])
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.prepareForAutolayout()
+        
+        return scrollView
+    }()
+    
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        view.prepareForAutolayout()
+        
+        return view
     }()
     
     private lazy var titleLabel: UILabel = {
@@ -45,8 +61,10 @@ final class ChartView: BaseView<ChartView.UIModel, ChartView.Actions> {
     
     override func addSubviews() {
         self.backgroundColor = .white
+        addSubview(scrollView)
         addSubview(titleLabel)
-        addSubview(chartView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(chartView)
     }
     
     override func setConstraints() {
@@ -56,19 +74,38 @@ final class ChartView: BaseView<ChartView.UIModel, ChartView.Actions> {
             safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 24)
         ]
         
+        let scrollViewConstraints = [
+            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ]
+        
+        let contentViewConstraints = [
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
+        ]
+        
         let chartViewConstraints = [
-            chartView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: 16),
-            chartView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            chartView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            chartView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            chartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            contentView.trailingAnchor.constraint(equalTo: chartView.trailingAnchor, constant: 16),
+            contentView.bottomAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 16),
             chartView.heightAnchor.constraint(equalToConstant: 250)
         ]
         
-        NSLayoutConstraint.activate(labelConstraints + chartViewConstraints)
+        NSLayoutConstraint.activate(labelConstraints
+                                    + scrollViewConstraints
+                                    + contentViewConstraints
+                                    + chartViewConstraints)
     }
     
     override func updateUI() {
         guard let uiModel else { return }
         chartInformation.values = uiModel.data
     }
+
 }

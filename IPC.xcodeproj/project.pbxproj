@@ -40,7 +40,7 @@
 		16A35B3A29BFD5AE0023F79E /* AuthenticationUIModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B3929BFD5AE0023F79E /* AuthenticationUIModelBuilder.swift */; };
 		16A35B3D29C050C60023F79E /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B3C29C050C50023F79E /* LineChartView.swift */; };
 		16A35B3F29C0FBFC0023F79E /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B3E29C0FBFC0023F79E /* ChartView.swift */; };
-		16A35B4329C100E40023F79E /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B4229C100E40023F79E /* ChartModel.swift */; };
+		16A35B4329C100E40023F79E /* IPCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B4229C100E40023F79E /* IPCData.swift */; };
 		16A35B4529C117E60023F79E /* DateFormatter + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B4429C117E60023F79E /* DateFormatter + Extension.swift */; };
 		16A35B4829C1190F0023F79E /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B4729C1190F0023F79E /* NetworkRequest.swift */; };
 		16A35B4A29C11B6C0023F79E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B4929C11B6C0023F79E /* NetworkService.swift */; };
@@ -113,7 +113,7 @@
 		16A35B3929BFD5AE0023F79E /* AuthenticationUIModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUIModelBuilder.swift; sourceTree = "<group>"; };
 		16A35B3C29C050C50023F79E /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		16A35B3E29C0FBFC0023F79E /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
-		16A35B4229C100E40023F79E /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
+		16A35B4229C100E40023F79E /* IPCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCData.swift; sourceTree = "<group>"; };
 		16A35B4429C117E60023F79E /* DateFormatter + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter + Extension.swift"; sourceTree = "<group>"; };
 		16A35B4729C1190F0023F79E /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		16A35B4929C11B6C0023F79E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -461,7 +461,7 @@
 		16A35B4129C0FFFC0023F79E /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				16A35B4229C100E40023F79E /* ChartModel.swift */,
+				16A35B4229C100E40023F79E /* IPCData.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -767,7 +767,7 @@
 				168D5D0629BE4FDC008ADD41 /* Router.swift in Sources */,
 				16A35B3A29BFD5AE0023F79E /* AuthenticationUIModelBuilder.swift in Sources */,
 				1656A42329BE8BB800AEE3DA /* AuthenticacionCoordinator.swift in Sources */,
-				16A35B4329C100E40023F79E /* ChartModel.swift in Sources */,
+				16A35B4329C100E40023F79E /* IPCData.swift in Sources */,
 				16A35B7729C1972A0023F79E /* ChartUIModelBuilder.swift in Sources */,
 				164CCE3329BF13160054DEA8 /* IPCError.swift in Sources */,
 			);

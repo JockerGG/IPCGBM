@@ -178,6 +178,6 @@ struct LineChartView_Previews: PreviewProvider {
                          .init(y: 2000, x: "01/01/23")
         ]
         
-        return view
+        return view.frame(height: 250)
     }
 }

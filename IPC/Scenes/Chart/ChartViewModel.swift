@@ -9,11 +9,12 @@ import Foundation
 
 final class ChartViewModel: BaseViewModel<ChartViewModel.NotifierActions> {
     enum NotifierActions {
-        case didUpdate(data: [ChartModel])
+        case didUpdate(data: [ChartData])
         case showAlert(title: String, message: String, actions: [AlertAction])
     }
     
     private let ipcRepository: IPCRepositorable
+    private var data: [ChartData] = []
     
     init(ipcRepository: IPCRepositorable) {
         self.ipcRepository = ipcRepository
@@ -25,6 +26,8 @@ final class ChartViewModel: BaseViewModel<ChartViewModel.NotifierActions> {
             guard let self = self else { return }
             switch result {
             case .success(let data):
+                let dateFormatter: DateFormatter = DateFormatter.formatter(with: DateFormatter.Formats.simple.rawValue)
+                let data: [ChartData] = data.map { .init(y: $0.price, x: dateFormatter.string(from: $0.date)) }
                 self.notifier?(.didUpdate(data: data))
             case .failure(let error):
                 self.notifier?(.showAlert(title: "chart-data-error".localized,
@@ -39,5 +42,4 @@ final class ChartViewModel: BaseViewModel<ChartViewModel.NotifierActions> {
             }
         }
     }
-    
 }

@@ -26,7 +26,8 @@ final class RouterImplementation: Router {
     
     func present(_ viewController: UIViewController, animated: Bool) {
         let navigationController = UINavigationController(rootViewController: viewController)
-        viewController.present(navigationController, animated: animated)
+        navigationController.modalPresentationStyle = viewController.modalPresentationStyle
+        root?.present(navigationController, animated: animated)
     }
     
     func push(_ viewController: UIViewController, animated: Bool) {

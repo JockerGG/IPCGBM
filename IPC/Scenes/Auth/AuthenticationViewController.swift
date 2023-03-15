@@ -11,6 +11,8 @@ import UIKit
 final class AuthenticationViewController: UIViewController, BaseViewController {
     private let viewModel: AuthenticationViewModel
     private let uiModelBuilder: AuthenticationUIModelBuilder
+    private weak var navigationDelegate: AuthenticationCoordinationNavigationDelegate?
+    
     private lazy var formView: AuthenticationView = {
         let view = AuthenticationView(uiModel: .init(biometricType: .touchID),
                                       actionHandler: { [weak self] action in
@@ -20,12 +22,12 @@ final class AuthenticationViewController: UIViewController, BaseViewController {
         return view
     }()
     
-    var navigationDelegate: AuthenticationCoordinationNavigationDelegate?
-    
     init(viewModel: AuthenticationViewModel,
-         uiModelBuilder: AuthenticationUIModelBuilder = AuthenticationUIModelBuilder()) {
+         uiModelBuilder: AuthenticationUIModelBuilder = AuthenticationUIModelBuilder(),
+         navigationDelegate: AuthenticationCoordinationNavigationDelegate?) {
         self.viewModel = viewModel
         self.uiModelBuilder = uiModelBuilder
+        self.navigationDelegate = navigationDelegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,8 +37,8 @@ final class AuthenticationViewController: UIViewController, BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.notifier = { notification in
-            self.updateUI(with: notification)
+        viewModel.notifier = { [weak self] notification in
+            self?.updateUI(with: notification)
         }
     }
     
@@ -47,7 +49,7 @@ final class AuthenticationViewController: UIViewController, BaseViewController {
     
     private func updateUI(with notification: AuthenticationViewModel.NotifierActions) {
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             switch notification {
             case .update(let biometricType):
                 self.formView.uiModel = self.uiModelBuilder.assemble(with: biometricType)

@@ -1,17 +1,15 @@
 //
-//  ChartModel.swift
+//  IPCData.swift
 //  IPC
 //
 //  Created by Eduardo García González on 14/03/23.
 //
 import Foundation
 
-struct ChartModel: Codable {
+struct IPCData: Codable {
     let date: Date
     let price: CGFloat
     let percentageChange: CGFloat
-    
-    var ipc: CGFloat {
-        price - (price * percentageChange)
-    }
+    let change: CGFloat
+    let volume: Double
 }

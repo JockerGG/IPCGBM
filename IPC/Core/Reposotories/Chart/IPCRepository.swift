@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IPCRepositorable {
-    func getIPCData(completion: @escaping ((Result<[ChartModel], Error>) -> Void))
+    func getIPCData(completion: @escaping ((Result<[IPCData], Error>) -> Void))
 }
 
 final class IPCRepository: IPCRepositorable {
@@ -20,7 +20,7 @@ final class IPCRepository: IPCRepositorable {
         self.request = request
     }
     
-    func getIPCData(completion: @escaping ((Result<[ChartModel], Error>) -> Void)) {
+    func getIPCData(completion: @escaping ((Result<[IPCData], Error>) -> Void)) {
         service.request(request, completion: completion)
     }
 }
