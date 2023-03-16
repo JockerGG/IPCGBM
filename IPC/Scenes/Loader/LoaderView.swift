@@ -13,15 +13,7 @@ final class LoaderView: BaseView<LoaderView.UIModel, LoaderView.Action> {
     struct UIModel { }
     
     lazy var loaderIndicator: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView(style: .medium)
-        view.prepareForAutolayout()
-        
-        return view
-    }()
-    
-    lazy var blurView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .dark)
-        let view = UIVisualEffectView(effect: blurEffect)
+        let view = UIActivityIndicatorView(style: .large)
         view.prepareForAutolayout()
         
         return view
@@ -29,24 +21,16 @@ final class LoaderView: BaseView<LoaderView.UIModel, LoaderView.Action> {
     
     
     override func addSubviews() {
-        addSubview(blurView)
         addSubview(loaderIndicator)
     }
     
     override func setConstraints() {
-        let blurViewConstraints = [
-            blurView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            blurView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: blurView.leadingAnchor),
-            safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: blurView.bottomAnchor)
-        ]
-        
         let loaderIndicatorConstraints = [
             loaderIndicator.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             loaderIndicator.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
         ]
         
-        NSLayoutConstraint.activate(blurViewConstraints + loaderIndicatorConstraints)
+        NSLayoutConstraint.activate(loaderIndicatorConstraints)
     }
     
     func startAnimation() {

@@ -14,7 +14,7 @@ final class ChartViewSnapshotTests: XCTestCase {
     
     func test_chart_view_render() {
         // Given
-        let sut = ChartView(uiModel: .init(data: ChartDataMother.chartData), actionHandler: nil)
+        let sut = ChartView(uiModel: .init(data: ChartDataMother.chartData, simulationEnabled: false), actionHandler: nil)
         
         // When
         let vc = UIViewController()

@@ -40,6 +40,8 @@ final class AuthenticationViewController: UIViewController, BaseViewController {
         viewModel.notifier = { [weak self] notification in
             self?.updateUI(with: notification)
         }
+        
+        viewModel.validateBiometric()
     }
     
     override func loadView() {

@@ -21,6 +21,7 @@ open class BaseView<T, U>: UIView {
         self.uiModel = uiModel
         self.actionHandler = actionHandler
         super.init(frame: .zero)
+        
         addSubviews()
         setConstraints()
         updateUI()

@@ -8,7 +8,7 @@
 import Foundation
 
 struct ChartUIModelBuilder {
-    func assemble(with data: [ChartData]) -> ChartView.UIModel {
-        return .init(data: data)
+    func assemble(with data: [ChartUIData], simulationEnabled: Bool = false) -> ChartView.UIModel {
+        return .init(data: data, simulationEnabled: simulationEnabled)
     }
 }

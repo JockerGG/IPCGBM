@@ -1,5 +1,5 @@
 //
-//  LineChartView.swift
+//  LineUIChartView.swift
 //  IPC
 //
 //  Created by Eduardo García González on 14/03/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LineChartView: View {
+struct LineUIChartView: View {
     @ObservedObject var data: ChartInformation = .init(values: [])
     @State private var currentPlot: String = ""
     @State private var currentLabel: String = ""
@@ -167,10 +167,10 @@ struct LineChartView: View {
     }
 }
 
-struct LineChartView_Previews: PreviewProvider {
+struct LineUIChartView_Previews: PreviewProvider {
     static var previews: some View {
         let object = ChartInformation(values: [])
-        let view: LineChartView = LineChartView(data: object)
+        let view: LineUIChartView = LineUIChartView(data: object)
         
         object.values = [.init(y: 790, x: "04/01/23"),
                          .init(y: 790, x: "04/01/23"),

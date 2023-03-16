@@ -9,7 +9,7 @@
 import Foundation
 
 enum ChartDataMother {
-    static let chartData: [ChartData] = [
+    static let chartData: [ChartUIData] = [
         .init(y: 989, x: "01/01/2023"),
         .init(y: 1200, x: "02/01/23"),
         .init(y: 750, x: "03/01/23"),

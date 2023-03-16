@@ -27,6 +27,10 @@ final class AuthenticationViewModel: BaseViewModel<AuthenticationViewModel.Notif
         self.localAuthenticationValidatorRepository = localAuthenticationValidatorRepository
         self.localContext = localContext
         super.init()
+    }
+    
+    func validateBiometric() {
+        _ = localAuthenticationValidatorRepository.validate()
         notifier?(.update(biometricType: localContext.biometryType))
     }
     

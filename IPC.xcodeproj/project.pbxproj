@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1609DA1A29C29E7B00138EA4 /* IPCRealTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1609DA1929C29E7B00138EA4 /* IPCRealTimeRepository.swift */; };
 		164CCE2E29BF0F9D0054DEA8 /* AuthenticationViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164CCE2D29BF0F9D0054DEA8 /* AuthenticationViewSnapshotTests.swift */; };
 		164CCE3129BF12810054DEA8 /* LARepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164CCE3029BF12810054DEA8 /* LARepository.swift */; };
 		164CCE3329BF13160054DEA8 /* IPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164CCE3229BF13160054DEA8 /* IPCError.swift */; };
@@ -38,7 +39,7 @@
 		168D5D0229BE4B9B008ADD41 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5D0129BE4B9B008ADD41 /* Coordinator.swift */; };
 		168D5D0629BE4FDC008ADD41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5D0529BE4FDC008ADD41 /* Router.swift */; };
 		16A35B3A29BFD5AE0023F79E /* AuthenticationUIModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B3929BFD5AE0023F79E /* AuthenticationUIModelBuilder.swift */; };
-		16A35B3D29C050C60023F79E /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B3C29C050C50023F79E /* LineChartView.swift */; };
+		16A35B3D29C050C60023F79E /* LineUIChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B3C29C050C50023F79E /* LineUIChartView.swift */; };
 		16A35B3F29C0FBFC0023F79E /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B3E29C0FBFC0023F79E /* ChartView.swift */; };
 		16A35B4329C100E40023F79E /* IPCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B4229C100E40023F79E /* IPCData.swift */; };
 		16A35B4529C117E60023F79E /* DateFormatter + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B4429C117E60023F79E /* DateFormatter + Extension.swift */; };
@@ -54,7 +55,7 @@
 		16A35B6A29C151AA0023F79E /* ChartDataMother.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B6929C151AA0023F79E /* ChartDataMother.swift */; };
 		16A35B6C29C153970023F79E /* CGFloat + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B6B29C153970023F79E /* CGFloat + Extension.swift */; };
 		16A35B6F29C163790023F79E /* ChartInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B6E29C163790023F79E /* ChartInformation.swift */; };
-		16A35B7129C163A50023F79E /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7029C163A50023F79E /* ChartData.swift */; };
+		16A35B7129C163A50023F79E /* ChartUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7029C163A50023F79E /* ChartUIData.swift */; };
 		16A35B7329C195800023F79E /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7229C195800023F79E /* ChartViewController.swift */; };
 		16A35B7729C1972A0023F79E /* ChartUIModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7629C1972A0023F79E /* ChartUIModelBuilder.swift */; };
 		16A35B7B29C199DF0023F79E /* IPCRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B7A29C199DF0023F79E /* IPCRepository.swift */; };
@@ -65,6 +66,8 @@
 		16A35B8B29C1B71D0023F79E /* RouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B8A29C1B71D0023F79E /* RouterSpy.swift */; };
 		16A35B8D29C1B7B10023F79E /* DummyLAContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B8C29C1B7B10023F79E /* DummyLAContext.swift */; };
 		16A35B9029C1C4DA0023F79E /* ChartCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A35B8F29C1C4DA0023F79E /* ChartCoordinatorTests.swift */; };
+		6785C333716B3098599C2B90 /* Pods_IPCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F23D3980F6BDFE4499384C1 /* Pods_IPCTests.framework */; };
+		70E3B329142F2DF1881ACF29 /* Pods_IPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34004CB0BD567046B3839B14 /* Pods_IPC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1609DA1929C29E7B00138EA4 /* IPCRealTimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCRealTimeRepository.swift; sourceTree = "<group>"; };
 		164CCE2D29BF0F9D0054DEA8 /* AuthenticationViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewSnapshotTests.swift; sourceTree = "<group>"; };
 		164CCE3029BF12810054DEA8 /* LARepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LARepository.swift; sourceTree = "<group>"; };
 		164CCE3229BF13160054DEA8 /* IPCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCError.swift; sourceTree = "<group>"; };
@@ -111,7 +115,7 @@
 		168D5D0129BE4B9B008ADD41 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		168D5D0529BE4FDC008ADD41 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		16A35B3929BFD5AE0023F79E /* AuthenticationUIModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUIModelBuilder.swift; sourceTree = "<group>"; };
-		16A35B3C29C050C50023F79E /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		16A35B3C29C050C50023F79E /* LineUIChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUIChartView.swift; sourceTree = "<group>"; };
 		16A35B3E29C0FBFC0023F79E /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		16A35B4229C100E40023F79E /* IPCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCData.swift; sourceTree = "<group>"; };
 		16A35B4429C117E60023F79E /* DateFormatter + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter + Extension.swift"; sourceTree = "<group>"; };
@@ -127,7 +131,7 @@
 		16A35B6929C151AA0023F79E /* ChartDataMother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataMother.swift; sourceTree = "<group>"; };
 		16A35B6B29C153970023F79E /* CGFloat + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extension.swift"; sourceTree = "<group>"; };
 		16A35B6E29C163790023F79E /* ChartInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInformation.swift; sourceTree = "<group>"; };
-		16A35B7029C163A50023F79E /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		16A35B7029C163A50023F79E /* ChartUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUIData.swift; sourceTree = "<group>"; };
 		16A35B7229C195800023F79E /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		16A35B7629C1972A0023F79E /* ChartUIModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUIModelBuilder.swift; sourceTree = "<group>"; };
 		16A35B7A29C199DF0023F79E /* IPCRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCRepository.swift; sourceTree = "<group>"; };
@@ -138,6 +142,12 @@
 		16A35B8A29C1B71D0023F79E /* RouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSpy.swift; sourceTree = "<group>"; };
 		16A35B8C29C1B7B10023F79E /* DummyLAContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyLAContext.swift; sourceTree = "<group>"; };
 		16A35B8F29C1C4DA0023F79E /* ChartCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCoordinatorTests.swift; sourceTree = "<group>"; };
+		1F23D3980F6BDFE4499384C1 /* Pods_IPCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IPCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34004CB0BD567046B3839B14 /* Pods_IPC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IPC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4133A99327DAC4996DD547CB /* Pods-IPCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPCTests.debug.xcconfig"; path = "Target Support Files/Pods-IPCTests/Pods-IPCTests.debug.xcconfig"; sourceTree = "<group>"; };
+		969FB1286360CFF6F90AE690 /* Pods-IPC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPC.debug.xcconfig"; path = "Target Support Files/Pods-IPC/Pods-IPC.debug.xcconfig"; sourceTree = "<group>"; };
+		B67F248DD1E697507612B11D /* Pods-IPC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPC.release.xcconfig"; path = "Target Support Files/Pods-IPC/Pods-IPC.release.xcconfig"; sourceTree = "<group>"; };
+		DBB783DE9C372B2D93865F07 /* Pods-IPCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPCTests.release.xcconfig"; path = "Target Support Files/Pods-IPCTests/Pods-IPCTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E3B329142F2DF1881ACF29 /* Pods_IPC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1656A43729BEF97900AEE3DA /* SnapshotTesting in Frameworks */,
+				6785C333716B3098599C2B90 /* Pods_IPCTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +326,8 @@
 				168D5CC529BE4340008ADD41 /* IPC */,
 				168D5CDC29BE4342008ADD41 /* IPCTests */,
 				168D5CC429BE4340008ADD41 /* Products */,
+				491A6B02E219E803BE7E6C61 /* Pods */,
+				AA99D558CD65E75FC46E1906 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -442,7 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				16A35B6D29C163300023F79E /* Models */,
-				16A35B3C29C050C50023F79E /* LineChartView.swift */,
+				16A35B3C29C050C50023F79E /* LineUIChartView.swift */,
 				16A35B3E29C0FBFC0023F79E /* ChartView.swift */,
 				16A35B7229C195800023F79E /* ChartViewController.swift */,
 				16A35B7C29C19C290023F79E /* ChartViewModel.swift */,
@@ -554,7 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				16A35B6E29C163790023F79E /* ChartInformation.swift */,
-				16A35B7029C163A50023F79E /* ChartData.swift */,
+				16A35B7029C163A50023F79E /* ChartUIData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -580,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				16A35B7A29C199DF0023F79E /* IPCRepository.swift */,
+				1609DA1929C29E7B00138EA4 /* IPCRealTimeRepository.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -625,6 +640,26 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
+		491A6B02E219E803BE7E6C61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				969FB1286360CFF6F90AE690 /* Pods-IPC.debug.xcconfig */,
+				B67F248DD1E697507612B11D /* Pods-IPC.release.xcconfig */,
+				4133A99327DAC4996DD547CB /* Pods-IPCTests.debug.xcconfig */,
+				DBB783DE9C372B2D93865F07 /* Pods-IPCTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AA99D558CD65E75FC46E1906 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34004CB0BD567046B3839B14 /* Pods_IPC.framework */,
+				1F23D3980F6BDFE4499384C1 /* Pods_IPCTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -632,9 +667,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 168D5CED29BE4342008ADD41 /* Build configuration list for PBXNativeTarget "IPC" */;
 			buildPhases = (
+				B470C8E4BC92F5518F723FA2 /* [CP] Check Pods Manifest.lock */,
 				168D5CBF29BE4340008ADD41 /* Sources */,
 				168D5CC029BE4340008ADD41 /* Frameworks */,
 				168D5CC129BE4340008ADD41 /* Resources */,
+				19655E71731F00694A1219A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -649,6 +686,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 168D5CF029BE4342008ADD41 /* Build configuration list for PBXNativeTarget "IPCTests" */;
 			buildPhases = (
+				9A1108FE44159999E863F6F1 /* [CP] Check Pods Manifest.lock */,
 				168D5CD529BE4342008ADD41 /* Sources */,
 				168D5CD629BE4342008ADD41 /* Frameworks */,
 				168D5CD729BE4342008ADD41 /* Resources */,
@@ -729,6 +767,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19655E71731F00694A1219A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IPC/Pods-IPC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IPC/Pods-IPC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IPC/Pods-IPC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A1108FE44159999E863F6F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IPCTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B470C8E4BC92F5518F723FA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IPC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		168D5CBF29BE4340008ADD41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -750,15 +852,16 @@
 				16A35B3F29C0FBFC0023F79E /* ChartView.swift in Sources */,
 				168D5CC729BE4340008ADD41 /* AppDelegate.swift in Sources */,
 				164CCE4229BFA4620054DEA8 /* AuthenticationViewModel.swift in Sources */,
+				1609DA1A29C29E7B00138EA4 /* IPCRealTimeRepository.swift in Sources */,
 				168D5D0229BE4B9B008ADD41 /* Coordinator.swift in Sources */,
 				16A35B8029C19D540023F79E /* LoaderView.swift in Sources */,
 				164CCE3129BF12810054DEA8 /* LARepository.swift in Sources */,
-				16A35B7129C163A50023F79E /* ChartData.swift in Sources */,
+				16A35B7129C163A50023F79E /* ChartUIData.swift in Sources */,
 				1656A42529BEBE2D00AEE3DA /* AuthenticationView.swift in Sources */,
 				16A35B7D29C19C290023F79E /* ChartViewModel.swift in Sources */,
 				1656A42829BEBE8000AEE3DA /* UIView + Extension.swift in Sources */,
 				1656A42D29BEE56600AEE3DA /* String + Extension.swift in Sources */,
-				16A35B3D29C050C60023F79E /* LineChartView.swift in Sources */,
+				16A35B3D29C050C60023F79E /* LineUIChartView.swift in Sources */,
 				164CCE5129BFCA920054DEA8 /* Unwrapper.swift in Sources */,
 				16A35B7B29C199DF0023F79E /* IPCRepository.swift in Sources */,
 				168D5CC929BE4340008ADD41 /* SceneDelegate.swift in Sources */,
@@ -935,6 +1038,7 @@
 		};
 		168D5CEE29BE4342008ADD41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 969FB1286360CFF6F90AE690 /* Pods-IPC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -964,6 +1068,7 @@
 		};
 		168D5CEF29BE4342008ADD41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B67F248DD1E697507612B11D /* Pods-IPC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -993,6 +1098,7 @@
 		};
 		168D5CF129BE4342008ADD41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4133A99327DAC4996DD547CB /* Pods-IPCTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1020,6 +1126,7 @@
 		};
 		168D5CF229BE4342008ADD41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBB783DE9C372B2D93865F07 /* Pods-IPCTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

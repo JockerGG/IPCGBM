@@ -15,7 +15,9 @@ final class ChartCoordinator: Coordinator {
     
     private lazy var nextViewController: ChartViewController = {
         let ipcRepository = IPCRepository(service: NetworkServiceImplementation(session: URLSession.shared), request: IPCRequest())
-        return ChartViewController(viewModel: .init(ipcRepository: ipcRepository))
+        let ipcRealTimeRepository = IPCRealTimeRepository()
+        return ChartViewController(viewModel: .init(ipcRepository: ipcRepository,
+                                                    ipcRealTimeRepository: ipcRealTimeRepository))
     }()
     
     init(parentViewController: UIViewController?, router: Router? = nil) {

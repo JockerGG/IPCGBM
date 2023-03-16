@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class ChartData: ObservableObject, Identifiable {
+final class ChartUIData: ObservableObject, Identifiable {
     var id = UUID()
     @Published var y: CGFloat = 0.0
     @Published var x: String = ""

@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 final class ChartInformation: ObservableObject {
-    @Published var values: [ChartData] = []
+    @Published var values: [ChartUIData] = []
     
-    init(values: [ChartData]) {
+    init(values: [ChartUIData]) {
         self.values = values
     }
 }

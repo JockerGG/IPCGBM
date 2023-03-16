@@ -13,7 +13,9 @@ final class ChartViewController: UIViewController, BaseViewController {
     private let uiModelBuilder: ChartUIModelBuilder
     
     lazy var formView: ChartView = {
-        let chartView = ChartView(uiModel: .init(data: []), actionHandler: { _ in })
+        let chartView = ChartView(uiModel: .init(data: [], simulationEnabled: false), actionHandler: { [weak self] action in
+            self?.handle(action)
+        })
         
         return chartView
     }()
@@ -30,6 +32,9 @@ final class ChartViewController: UIViewController, BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "chart-view-title".localized
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         viewModel.notifier = { [weak self] notification in
             self?.updateUI(with: notification)
         }
@@ -51,9 +56,18 @@ final class ChartViewController: UIViewController, BaseViewController {
             case .didUpdate(let data):
                 self.formView.uiModel = self.uiModelBuilder.assemble(with: data)
                 self.hideLoader()
+            case .didUpdateFromSimulation(let data, let complete):
+                self.formView.uiModel = self.uiModelBuilder.assemble(with: data, simulationEnabled: !complete)
             case .showAlert(let title, let message, let actions):
                 self.showAlertController(title: title, message: message, actions: actions)
             }
+        }
+    }
+    
+    private func handle(_ action: ChartView.Actions) {
+        switch action {
+        case .valueChanged(let enableSimulation):
+            enableSimulation ? viewModel.simulateRealTime() : viewModel.stopRealTimeSimulation()
         }
     }
 }
