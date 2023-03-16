@@ -10,7 +10,9 @@ import SwiftUI
 import Charts
 
 final class ChartView: BaseView<ChartView.UIModel, ChartView.Actions> {
+    /// Notify to the view controller that the user has interacted with the view.
     enum Actions {
+        /// Notify the view controller the value of the switch has changed.
         case valueChanged(on: Bool)
     }
     

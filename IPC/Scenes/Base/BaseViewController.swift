@@ -8,8 +8,17 @@
 import UIKit
 
 protocol BaseViewController: AnyObject {
+    /// Present an alert controller in the `viewController` where is invoked.
+    /// - Parameters:
+    ///     - title: The title of the alert controller.
+    ///     - message: The message of the alert controller.
+    ///     - actions: The actions that the alert controller could include,
     func showAlertController(title: String, message: String?, actions: [AlertAction])
+    
+    /// Show a basic view that indicates the `viewController` is loading.
     func showLoader()
+    
+    /// Remove the `LoaderView` from the current `viewController`
     func hideLoader()
 }
 

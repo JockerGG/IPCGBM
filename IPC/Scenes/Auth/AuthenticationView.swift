@@ -14,7 +14,9 @@ final class AuthenticationView: BaseView<AuthenticationView.UIModel, Authenticat
         let biometricType: LABiometryType
     }
     
+    /// Notify to the view controller that the user has interacted with the view.
     enum Actions {
+        /// Notify the view controller that the user has tapped the login button.
         case didTapLoginButton
     }
     

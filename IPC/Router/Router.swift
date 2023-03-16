@@ -8,18 +8,34 @@
 import UIKit
 
 protocol Router: AnyObject {
+    /// Parent controller to perform the navigation
     var root: UIViewController? { get set }
+    
+    /// Present the `viewController`
     func present(_ viewController: UIViewController, animated: Bool)
+    
+    /// Push the `viewController`
     func push(_ viewController: UIViewController, animated: Bool)
+    
+    /// Pop the presented controller in the `UIViewController` stack.
     func pop(animated: Bool, completion: (() -> Void)?)
+    
+    /// Dismiss the current `viewController`
     func dismiss(animated: Bool, completion: (() -> Void)?)
+    
+    /// Set the `viewController` as the root.
     func setRoot(_ viewController: UIViewController, animated: Bool)
+    
+    /// Pop all controllers to the root of the `UINavigationController`
     func popToRootViewController(animated: Bool, completion: (() -> Void)?)
 }
 
+/// Implementation of  `Router`
 final class RouterImplementation: Router {
     var root: UIViewController?
     
+    /// - Parameters:
+    ///     - root: The controller that handle the navigation.
     init(root: UIViewController? = nil) {
         self.root = root
     }

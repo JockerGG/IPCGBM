@@ -17,12 +17,20 @@ protocol URLSessionProtocol {
 }
 
 protocol NetworkService {
+    /// Perform network request.
+    /// - Parameters:
+    ///     - request:  the request tha will be executed.
+    ///     - completion: clousure that will be executed when the request is completed.
     func request<Request: NetworkRequest>(_ request: Request, completion: @escaping (Result<Request.Response, Error>) -> Void)
 }
 
 final class NetworkServiceImplementation: NetworkService {
+    /// The session to perform network requests.
     let session: URLSessionProtocol
     
+    /// Initialize the `NetworkService` with the `URLSessionProtocol`.
+    /// - Parameters:
+    ///     - session: The session that will perform the network request.
     init(session: URLSessionProtocol) {
         self.session = session
     }
@@ -65,4 +73,5 @@ extension URLSession: URLSessionProtocol {
         return self.dataTask(with: request, completionHandler: completionHandler)
     }
 }
+
 extension URLSessionDataTask: URLSessionDataTaskProtocol { }

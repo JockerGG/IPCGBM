@@ -9,7 +9,4 @@ import Foundation
 struct IPCData: Codable {
     let date: Date
     let price: CGFloat
-    let percentageChange: CGFloat
-    let change: CGFloat
-    let volume: Double
 }

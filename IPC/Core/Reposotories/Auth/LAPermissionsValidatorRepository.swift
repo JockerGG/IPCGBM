@@ -18,14 +18,21 @@ protocol LAPermissionsValidatorRepositorable {
     func validate() -> LAPermissionsValidatorStep
 }
 
+/// Validates if the user has granted permission to use biometric authentication.
 final class LAPermissionsValidatorRepository: LAPermissionsValidatorRepositorable {
+    ///  Local authentication context. 
     internal var context: LAContext
+    
+    /// Error in the case the validation fails.
     private var error: NSError?
     
+    /// - Parameters:
+    ///     - context: Local authentication context.
     init(context: LAContext) {
         self.context = context
     }
     
+    /// Verify if the user has granted permissions to perform the authentication. 
     func validate() -> LAPermissionsValidatorStep {
         /// Check for permissions
         let permissions = context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)

@@ -9,17 +9,22 @@ import Foundation
 import LocalAuthentication
 
 protocol LARepositorable {
+    /// Login user with biometric authentication.
     func login(completion: @escaping ((Result<Bool, Error>) -> Void))
 }
 
+/// Implementation of `LARepositorable`
 final class LARepository: LARepositorable {
+    /// Local authentication context.
     let context: LAContext
-    var error: NSError?
     
+    /// - Paramenters:
+    ///     - context: The local authentication context.
     init(context: LAContext) {
         self.context = context
     }
     
+    /// Login user with biometric authentication.
     func login(completion: @escaping ((Result<Bool, Error>) -> Void)) {
         context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "authentication-login-reason".localized) { (success, error) in
             if let error = error {

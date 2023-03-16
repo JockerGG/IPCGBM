@@ -10,9 +10,15 @@ import UIKit
 import LocalAuthentication
 
 final class AuthenticationViewModel: BaseViewModel<AuthenticationViewModel.NotifierActions> {
+    /// Actions to nofity to the view controller a change.
     enum NotifierActions {
+        /// Notify the view controller the correct biometry type that needs to be shown to the user.
         case update(biometricType: LABiometryType)
+        
+        /// Notify the view controller the user has authenticated correctly.
         case didLoginSuccess
+        
+        /// Notify the view controller that needs to present an alert to the user.
         case didShowAlert(title: String, message: String, actions: [AlertAction])
     }
     
@@ -20,6 +26,10 @@ final class AuthenticationViewModel: BaseViewModel<AuthenticationViewModel.Notif
     private let localAuthenticationRepository: LARepositorable
     private let localContext: LAContext
     
+    /// - Parameters:
+    ///     - localAuthenticationValidatorRepository: The repository implementatation to validate if the user has granted permissions for local authentication.
+    ///     - localAuthenticationRepository: The repository implementation to validae if the user is able to perform local authentication.
+    ///     - localContext: `LAContext` to retrieve the correct biometry type.
     init(localAuthenticationValidatorRepository: LAPermissionsValidatorRepositorable,
          localAuthenticationRepository: LARepositorable,
          localContext: LAContext) {
@@ -29,11 +39,15 @@ final class AuthenticationViewModel: BaseViewModel<AuthenticationViewModel.Notif
         super.init()
     }
     
+    /// Validate if the user has granted permissions
+    /// to retrieve the `biometryType`.
+    /// If we don't validate the permissions, the biometry always be `.none`
     func validateBiometric() {
         _ = localAuthenticationValidatorRepository.validate()
         notifier?(.update(biometricType: localContext.biometryType))
     }
     
+    /// Evaluate if the user is able to perform the local authentication
     func didTapLogin() {
         let validationResult = localAuthenticationValidatorRepository.validate()
         

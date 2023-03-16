@@ -15,11 +15,19 @@ enum HTTPMethod: String {
 protocol NetworkRequest {
     associatedtype Response
     
+    /// The url for the request.
     var url: String { get }
+    
+    /// The method of the request.
     var method: HTTPMethod { get }
+    
+    /// The headers of the request.
     var headers: [String: String] { get }
+    
+    /// The query items of the request.
     var queryItems: [String: String] { get }
     
+    /// Decode the response data to the codable model. 
     func decode(_ data: Data) throws -> Response
 }
 
