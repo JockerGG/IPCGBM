@@ -1,6 +1,0 @@
-framework module Pods_IPC {
-  umbrella header "Pods-IPC-umbrella.h"
-
-  export *
-  module * { export * }
-}
