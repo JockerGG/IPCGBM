@@ -8,12 +8,18 @@
 import Foundation
 
 protocol IPCRealTimeRepositorable {
+    var timer: Timer.Type { get }
     func simulate(with data: [ChartUIData],
                   updater: (([ChartUIData]) -> Void)?,
                   completion: @escaping ([ChartUIData]) -> Void) -> Timer
 }
 
 final class IPCRealTimeRepository: IPCRealTimeRepositorable {
+    internal var timer: Timer.Type
+    
+    init(timer: Timer.Type = Timer.self) {
+        self.timer = timer
+    }
     
     ///  Simulate a socket connection to retrieve values every 0.2 seconds. 
     func simulate(with data: [ChartUIData],
@@ -21,7 +27,7 @@ final class IPCRealTimeRepository: IPCRealTimeRepositorable {
                   completion: @escaping ([ChartUIData]) -> Void) -> Timer {
         var count: Int = 0
         
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { timer in
+        let timer = timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { timer in
             guard count < data.count else {
                 timer.invalidate()
                 completion(data)

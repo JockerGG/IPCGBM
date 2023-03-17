@@ -7,6 +7,27 @@
 
 import SwiftUI
 
+struct LineShape: Shape {
+    var yValues: [Double]
+    
+    func path(in rect: CGRect) -> Path {
+        let xIncrement = (rect.width / (CGFloat(yValues.count) - 1))
+        let factor = rect.height / CGFloat(yValues.max() ?? 1.0)
+        var path = Path()
+        if yValues.count > 0 {
+            path.move(to: CGPoint(x: 0.0,
+                                  y: (rect.height - (yValues[0] * factor))))
+            
+            for i in 1 ..< yValues.count {
+                let pt = CGPoint(x: (Double(i) * Double(xIncrement)),
+                                 y: (rect.height - (yValues[i] * factor)))
+                path.addLine(to: pt)
+            }
+        }
+        return path
+    }
+}
+
 struct LineUIChartView: View {
     @ObservedObject var data: ChartInformation = .init(values: [])
     @State private var currentPlot: String = ""
@@ -17,34 +38,34 @@ struct LineUIChartView: View {
     
     var body: some View {
         VStack {
+            Text("\("chart-data-price".localized) \(currentPlot)")
+                .font(.footnote)
+                .bold()
+                .opacity(showPlot ? 1 : 0)
+            Text("\("chart-data-date".localized) \(currentLabel)")
+                .font(.footnote)
+                .opacity(showPlot ? 1 : 0)
             GeometryReader { proxy in
                 let elements = data.values
                 let height = proxy.size.height
                 let width = (proxy.size.width / CGFloat(elements.count - 1))
                 let maxPoint = Unwrapper.unwrap(elements.map { $0.y }.max(),
                                                 defaultValue: 0) + 100
+                let firstElement = Unwrapper.unwrap(elements.map { $0.y }.first, defaultValue: 0)
+                
+                let factor = proxy.size.height / maxPoint
                 let points = elements.enumerated().compactMap { (itemOffset, item) -> CGPoint in
-                    let progress = item.y / maxPoint
+                    let progress = (item.y / maxPoint)
                     let pathHeight = progress * height
                     let pathWidth = width * CGFloat(itemOffset)
                     
-                    return CGPoint(x: pathWidth, y: -pathHeight + height)
+                    return CGPoint(x: pathWidth,
+                                   y: proxy.size.height - (item.y * factor))
                 }
                 
                 ZStack {
-                    Path { path in
-                        path.move(to: CGPoint(x: 0, y: 0))
-                        path.addLines(points)
-                    }
-                    .strokedPath(StrokeStyle(lineWidth: 2.5,
-                                             lineCap: .round,
-                                             lineJoin: .round))
-                    .fill(
-                        LinearGradient(colors: [
-                            Color.black,
-                            Color.black
-                        ], startPoint: .leading, endPoint: .trailing)
-                    )
+                    LineShape(yValues: elements.map { $0.y })
+                        .stroke(Color.black, lineWidth: 1.0)
                     
                     fillBG()
                     
@@ -62,18 +83,6 @@ struct LineUIChartView: View {
                 }
                 .overlay(
                     VStack(spacing: 0) {
-                        ZStack {
-                            Capsule()
-                                .frame(height: 25)
-                            Text(currentPlot)
-                                .font(.system(size: 10))
-                                .foregroundColor(.white)
-                        }
-                        .offset(x: translation < 10 ? 30 : 0)
-                        .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 10)
-                        
                         Rectangle()
                             .fill(.purple)
                             .frame(width: 1, height: 40)
@@ -91,18 +100,6 @@ struct LineUIChartView: View {
                         Rectangle()
                             .fill(.purple)
                             .frame(width: 1, height: 50)
-                        
-                        ZStack {
-                            Capsule()
-                                .frame(height: 25)
-                            Text(currentLabel)
-                                .font(.caption.bold())
-                                .foregroundColor(.white)
-                        }
-                        .offset(x: translation < 10 ? 30 : 0)
-                        .offset(x: translation > (proxy.size.width - 60) ? -30 : 0)
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 10)
                     }
                         .frame(width: 80, height: 150)
                         .offset(y: 70)

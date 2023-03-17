@@ -19,6 +19,8 @@
 "chart-view-title" = "Índice IPC";
 "chart-data-error" = "Ocurrió un error al obtener los datos del IPC, intenta de nuevo.";
 "chart-data-simulate-real-time" = "Simular tiempo real";
+"chart-data-price" = "Precio:";
+"chart-data-date" = "Fecha:";
 "generic-unknown-message" = "Ocurrió un problema, vuelve a intentarlo.";
 "network-service-error" = "No se pudo establecer conexión con la url especificada.";
 "network-service-error-response" = "Ocurrió un error al tratar de obtener la información, intenta de nuevo.";

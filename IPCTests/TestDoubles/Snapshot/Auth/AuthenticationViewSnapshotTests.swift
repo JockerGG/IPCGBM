@@ -24,4 +24,17 @@ final class AuthenticationViewSnapshotTests: XCTestCase {
         // Validate
         assertSnapshot(matching: vc, as: .image(on: .iPhoneSe), record: isRecording)
     }
+    
+    func test_authentication_view_face_id_render() {
+        // Given
+        let sut = AuthenticationView(uiModel: .init(biometricType: .faceID), actionHandler: nil)
+        
+        // When
+        let vc = UIViewController()
+        vc.view = sut
+        vc.loadViewIfNeeded()
+        
+        // Validate
+        assertSnapshot(matching: vc, as: .image(on: .iPhoneSe), record: isRecording)
+    }
 }

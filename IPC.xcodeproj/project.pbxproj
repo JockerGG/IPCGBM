@@ -31,6 +31,13 @@
 		1656A43029BEE75B00AEE3DA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656A42F29BEE75B00AEE3DA /* BaseView.swift */; };
 		1656A43429BEF89300AEE3DA /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656A43329BEF89300AEE3DA /* UIImage + Extension.swift */; };
 		1656A43729BEF97900AEE3DA /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 1656A43629BEF97900AEE3DA /* SnapshotTesting */; };
+		166F875029C4DD9700620368 /* ChartViewModelBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F874F29C4DD9700620368 /* ChartViewModelBehaviorTests.swift */; };
+		166F875229C4DDF200620368 /* IPCRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F875129C4DDF200620368 /* IPCRepositorySpy.swift */; };
+		166F875429C4DF7500620368 /* IPCRepositoryRealTimeSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F875329C4DF7500620368 /* IPCRepositoryRealTimeSpy.swift */; };
+		166F875929C4E27000620368 /* TimerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F875829C4E27000620368 /* TimerSpy.swift */; };
+		166F875B29C4E4AB00620368 /* DummyIPCRepositoryRealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F875A29C4E4AB00620368 /* DummyIPCRepositoryRealTime.swift */; };
+		166F875D29C4E78600620368 /* DummyIPCRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F875C29C4E78600620368 /* DummyIPCRepository.swift */; };
+		166F875F29C4E99F00620368 /* DummyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F875E29C4E99F00620368 /* DummyTimer.swift */; };
 		168D5CC729BE4340008ADD41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5CC629BE4340008ADD41 /* AppDelegate.swift */; };
 		168D5CC929BE4340008ADD41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5CC829BE4340008ADD41 /* SceneDelegate.swift */; };
 		168D5CCB29BE4340008ADD41 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168D5CCA29BE4340008ADD41 /* AuthenticationViewController.swift */; };
@@ -104,6 +111,13 @@
 		1656A42C29BEE56600AEE3DA /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		1656A42F29BEE75B00AEE3DA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		1656A43329BEF89300AEE3DA /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
+		166F874F29C4DD9700620368 /* ChartViewModelBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModelBehaviorTests.swift; sourceTree = "<group>"; };
+		166F875129C4DDF200620368 /* IPCRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCRepositorySpy.swift; sourceTree = "<group>"; };
+		166F875329C4DF7500620368 /* IPCRepositoryRealTimeSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCRepositoryRealTimeSpy.swift; sourceTree = "<group>"; };
+		166F875829C4E27000620368 /* TimerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSpy.swift; sourceTree = "<group>"; };
+		166F875A29C4E4AB00620368 /* DummyIPCRepositoryRealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyIPCRepositoryRealTime.swift; sourceTree = "<group>"; };
+		166F875C29C4E78600620368 /* DummyIPCRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyIPCRepository.swift; sourceTree = "<group>"; };
+		166F875E29C4E99F00620368 /* DummyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTimer.swift; sourceTree = "<group>"; };
 		168D5CC329BE4340008ADD41 /* IPC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168D5CC629BE4340008ADD41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168D5CC829BE4340008ADD41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -267,7 +281,10 @@
 				164CCE5B29BFCF060054DEA8 /* LARepositorySpy.swift */,
 				164CCE5D29BFCF1A0054DEA8 /* LAPermissionsValidatoryRepositorySpy.swift */,
 				16A35B5029C122530023F79E /* URLSessionProtocolSpy.swift */,
+				166F875829C4E27000620368 /* TimerSpy.swift */,
 				16A35B8A29C1B71D0023F79E /* RouterSpy.swift */,
+				166F875129C4DDF200620368 /* IPCRepositorySpy.swift */,
+				166F875329C4DF7500620368 /* IPCRepositoryRealTimeSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -307,6 +324,7 @@
 		1656A43829BEF98A00AEE3DA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				166F874E29C4DD8100620368 /* Chart */,
 				164CCE5629BFCE6D0054DEA8 /* Auth */,
 			);
 			path = Scenes;
@@ -318,6 +336,14 @@
 				164CCE2D29BF0F9D0054DEA8 /* AuthenticationViewSnapshotTests.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		166F874E29C4DD8100620368 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				166F874F29C4DD9700620368 /* ChartViewModelBehaviorTests.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		168D5CBA29BE4340008ADD41 = {
@@ -544,6 +570,9 @@
 			children = (
 				16A35B6329C14C650023F79E /* DummyURLSessionDataTask.swift */,
 				16A35B8C29C1B7B10023F79E /* DummyLAContext.swift */,
+				166F875A29C4E4AB00620368 /* DummyIPCRepositoryRealTime.swift */,
+				166F875C29C4E78600620368 /* DummyIPCRepository.swift */,
+				166F875E29C4E99F00620368 /* DummyTimer.swift */,
 			);
 			path = Dummy;
 			sourceTree = "<group>";
@@ -880,17 +909,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166F875429C4DF7500620368 /* IPCRepositoryRealTimeSpy.swift in Sources */,
 				164CCE5829BFCEBA0054DEA8 /* AuthenticationViewModelBehaviorTests.swift in Sources */,
+				166F875B29C4E4AB00620368 /* DummyIPCRepositoryRealTime.swift in Sources */,
 				16A35B9029C1C4DA0023F79E /* ChartCoordinatorTests.swift in Sources */,
 				16A35B6A29C151AA0023F79E /* ChartDataMother.swift in Sources */,
 				16A35B8829C1B7070023F79E /* AuthenticationCoordinatorTests.swift in Sources */,
 				164CCE4029BFA16A0054DEA8 /* LAPermissionsValidatorRepositoryTests.swift in Sources */,
 				16A35B4F29C122370023F79E /* NetworkServiceTests.swift in Sources */,
 				16A35B8B29C1B71D0023F79E /* RouterSpy.swift in Sources */,
+				166F875D29C4E78600620368 /* DummyIPCRepository.swift in Sources */,
+				166F875029C4DD9700620368 /* ChartViewModelBehaviorTests.swift in Sources */,
+				166F875229C4DDF200620368 /* IPCRepositorySpy.swift in Sources */,
 				164CCE3729BF17180054DEA8 /* LAContextStub.swift in Sources */,
 				16A35B5129C122530023F79E /* URLSessionProtocolSpy.swift in Sources */,
 				16A35B5829C124520023F79E /* FileManager.swift in Sources */,
 				164CCE2E29BF0F9D0054DEA8 /* AuthenticationViewSnapshotTests.swift in Sources */,
+				166F875F29C4E99F00620368 /* DummyTimer.swift in Sources */,
+				166F875929C4E27000620368 /* TimerSpy.swift in Sources */,
 				16A35B6429C14C650023F79E /* DummyURLSessionDataTask.swift in Sources */,
 				164CCE3C29BF187C0054DEA8 /* LARepositoryTests.swift in Sources */,
 				164CCE5E29BFCF1A0054DEA8 /* LAPermissionsValidatoryRepositorySpy.swift in Sources */,

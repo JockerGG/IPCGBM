@@ -26,3 +26,6 @@ Also there is a package from `SPM` that is used for testing. Make sure the packa
 - The project was developed trying to follow the `SOLID` principle. Also some design patterns was implemented, some of them are `Builder`, `Coordinator` and `Router`. 
 - The architecture of the projec is MVVM, with some other implementations with the purpouse of maintain a clean architecture. 
 - The test were developed following the `Test Doubles` patterns. Also there are some `Snapshot` tests that are very useful to detect undesire changes on the views. 
+
+## Tests 
+For the snapshot tests you need to run the tests in iPhone SE (3rd generation).
